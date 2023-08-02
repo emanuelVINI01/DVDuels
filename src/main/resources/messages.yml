@@ -1,1 +1,20 @@
+# The messages of plugin.
+
+# General messages
+
 not_have_permission: "&c&lERROR! &cYou don't have permission to do this."
+kit_not_exists: "&c&lERROR! &cThe kit not exists!"
+player_is_not_online: "&c&lERROR! &cThe player is not online."
+request_not_exists: "&c&lERROR! The request not exists."
+already_have_pending_request: "&c&LERROR! You already have a pending request."
+
+# Command messages
+
+stats:
+  - "&eThe stats of &f{player}&e is:"
+  - "&7"
+  - " &fKills: &e{kills}"
+  - " &fDeaths: &e{deaths}"
+  - " &fWins: &e{wins}"
+  - " &fLosses: &e{losses}"
+  - " &fWin Streak: &e{winstreak}"

@@ -1,0 +1,10 @@
+name: DVDuels
+main: com.emanuelvini.dvduels.DvDuels
+version: 1.0
+description: A duel plugin for DevRoom
+author: emanuelVINI
+commands:
+  stats:
+    aliases: [dstats]
+  invite: {}
+  accept: {}

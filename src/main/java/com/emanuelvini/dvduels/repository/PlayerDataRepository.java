@@ -43,6 +43,12 @@ public class PlayerDataRepository {
         return cache.get(uuid).get();
     }
 
+    public void saveAll() {
+        cache.synchronous().asMap().forEach((k, v) -> {
+            saveData(v);
+        });
+    }
+
     @SneakyThrows
     private PlayerData createData(UUID uuid) {
         val statement = connection.prepareStatement("INSERT INTO player_data VALUES (?, ?, ?, ?, ?, ?)");

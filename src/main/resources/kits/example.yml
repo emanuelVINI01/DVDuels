@@ -1,0 +1,14 @@
+name: "example"
+armors:
+  chestplate:
+    item: DIAMOND_CHESTPLATE
+    amount: 1
+    data: 0
+    enchantments:
+      - "PROTECTION_ENVIRONMENTAL:3"
+items:
+  1:
+    item: DIAMOND_SWORD
+    amount: 1
+    data: 0
+    enchatments: []

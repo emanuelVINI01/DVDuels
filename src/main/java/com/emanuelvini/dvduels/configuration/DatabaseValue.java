@@ -1,6 +1,7 @@
 package com.emanuelvini.dvduels.configuration;
 
 import com.emanuelvini.dvduels.DvDuels;
+import com.emanuelvini.dvduels.util.ConfigurationUtil;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 import lombok.val;
@@ -33,14 +34,7 @@ public class DatabaseValue {
 
     public void load(DvDuels plugin) {
 
-        //Save its default if not exists and load to YAML.
-        val databaseFile = new File(plugin.getDataFolder(), "database.yml");
-
-        if (databaseFile.exists()) plugin.saveResource("database.yml", false);
-
-        val databaseSection = YamlConfiguration.loadConfiguration(databaseFile);
-
-        //Load to variables (I suggested to use (https://github.com/henrysaantos/configuration-injector/) because this.
+        val databaseSection = ConfigurationUtil.loadConfiguration(plugin, "database.yml");
 
         address = databaseSection.getString("address");
         port = databaseSection.getInt("port");
