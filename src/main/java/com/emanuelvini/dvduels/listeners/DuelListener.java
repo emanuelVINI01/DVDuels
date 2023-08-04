@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 
 @AllArgsConstructor
 public class DuelListener implements Listener {
@@ -18,7 +19,7 @@ public class DuelListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         val player = event.getEntity();
-        val duel = duelManager.getRunningDuel(player.getUniqueId());
+        val duel = duelManager.removeAcceptedDuel(player.getUniqueId());
         if (duel != null) {
             val killer = event.getEntity().getKiller();
             if (killer == null) return;
@@ -36,7 +37,22 @@ public class DuelListener implements Listener {
 
             loserData.setDeaths(loserData.getKills() + 1);
             loserData.setWinStreak(0);
-            duelManager.removeRunningDuel(duel);
+
+            player.teleport(duel.getPlayerOneLocation());
+            killer.teleport(duel.getPlayerTwoLocation());
+
+            Bukkit.getScheduler().cancelTask(duel.getTask());
+
+            duelManager.removeAcceptedDuel(duel);
+        }
+    }
+
+    @EventHandler
+    public void onMove(PlayerMoveEvent moveEvent) {
+
+        val duel = duelManager.removeAcceptedDuel(moveEvent.getPlayer().getUniqueId());
+        if (duel != null && !duel.isStarted()) {
+            moveEvent.setCancelled(true);
         }
     }
 

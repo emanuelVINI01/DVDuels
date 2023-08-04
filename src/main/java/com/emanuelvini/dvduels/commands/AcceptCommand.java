@@ -32,21 +32,8 @@ public class AcceptCommand implements CommandExecutor {
             return true;
         }
         val kit = request.getKit();
-        duelManager.addRunningDuel(sender.getUniqueId(), target.getUniqueId(), kit);
-        Bukkit.getOnlinePlayers().forEach(player -> {
-            sender.hidePlayer(player);
-            target.hidePlayer(player);
-        });
-        sender.showPlayer(target);
-        target.showPlayer(sender);
-        sender.teleport(ArenaValue.instance().pos1());
-        target.teleport(ArenaValue.instance().pos2());
-
-        sender.getInventory().setArmorContents(kit.getArmorContents().toArray(new ItemStack[0]));
-        sender.getInventory().setContents(kit.getInventoryContents().toArray(new ItemStack[0]));
-
-        target.getInventory().setArmorContents(kit.getArmorContents().toArray(new ItemStack[0]));
-        target.getInventory().setContents(kit.getInventoryContents().toArray(new ItemStack[0]));
+        val acceptedDuel = duelManager.addAcceptedDuel(sender.getUniqueId(), target.getUniqueId(), kit);
+        duelManager.acceptDuel(sender.getUniqueId(), target.getUniqueId(), acceptedDuel);
 
         return false;
     }
