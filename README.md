@@ -10,7 +10,7 @@ Na prática, este repositório representa uma fase inicial de experimentação: 
 
 ## Stack identificada
 
-Bukkit/Spigot, Java, KSP, Maven
+Bukkit/Spigot, Java, Maven
 
 ## Leitura do código
 
