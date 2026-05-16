@@ -1,8 +1,23 @@
+> "Este projeto faz parte do meu início na programação. O código aqui é legado, reflete meus primeiros passos de aprendizado e não segue as práticas de arquitetura que utilizo hoje. Mantido aqui puramente por valor histórico e nostalgia."
+
 # DVDuels
-A trial plugin for devroom test verification. 
 
-A simple duel plugin with kit system, have contains bugs because not fully tested, fully configurable.<br>
+## O que este projeto tentava resolver
 
-`/duel <player> [kit]` - Starts a duel with a player, if kit not selected, will be default kit.<br>
-`/accept <player>` - Accept duel of player was request you to duel.<br>
-`/stats` - Show stats stored in database.<br>
+A trial plugin for devroom.
+
+Na prática, este repositório representa uma fase inicial de experimentação: código escrito para aprender, testar ideias, automatizar tarefas ou resolver demandas pontuais em comunidades e servidores. A prioridade na época era fazer funcionar, não desenhar uma arquitetura limpa.
+
+## Stack identificada
+
+Bukkit/Spigot, Java, KSP, Maven
+
+## Leitura do código
+
+- pom.xml identificado.
+- plugin.yml indica plugin Bukkit/Spigot.
+- diretório `src/` concentra a implementação principal.
+
+## Estado atual
+
+Este repositório não deve ser usado como referência do meu padrão técnico atual. Ele fica público para preservar a evolução: da fase de tentativa e erro com Java/Kotlin/Minecraft/Discord até os projetos atuais com sistemas web, APIs, dados e infraestrutura mais bem definidos.
